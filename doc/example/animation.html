@@ -96,11 +96,10 @@ var height = Math.ceil(zr.getHeight());
 var i;
 var n = 50;
 var shapeList = [];
+var CircleShape = require('zrender/shape/Circle');
 // 动画元素
 for(i = 0; i < n; i++) {
-    shapeList[i] = {
-        shape : 'circle',
-        id : zr.newShapeId(),
+    shapeList[i] = new CircleShape({
         style : {
             x : Math.ceil(Math.random() * width),
             y : Math.ceil(Math.random() * height),
@@ -119,7 +118,7 @@ for(i = 0; i < n; i++) {
         _animationX : Math.ceil(Math.random() * 20),
         _animationY : Math.ceil(Math.random() * 20),
         hoverable : false
-    };
+    });
     if (shapeList[i].style.x < 100 || shapeList[i].style.x > (width - 100)) {
         shapeList[i].style.x = width / 2;
     }
